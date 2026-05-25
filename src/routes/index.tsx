@@ -63,7 +63,7 @@ function Hero() {
         <div className="mt-10 flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.15s" }}>
           <Link
             to="/berita"
-            className="group inline-flex items-center gap-2 px-7 h-13 py-4 gradient-red text-bone rounded-md font-heading uppercase tracking-wider text-sm hover:shadow-red hover:scale-[1.02] transition-all"
+            className="group inline-flex items-center gap-2 px-7 py-4 gradient-red text-bone rounded-md font-heading uppercase tracking-wider text-sm hover:shadow-red hover:scale-[1.02] transition-all"
           >
             Explore Berita Terbaru
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
