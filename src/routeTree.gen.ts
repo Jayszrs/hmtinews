@@ -12,11 +12,23 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TentangRouteImport } from './routes/tentang'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PameranRouteImport } from './routes/pameran'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as KontakRouteImport } from './routes/kontak'
 import { Route as EventRouteImport } from './routes/event'
 import { Route as BeritaRouteImport } from './routes/berita'
 import { Route as AnggotaRouteImport } from './routes/anggota'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EventIdRouteImport } from './routes/event.$id'
+import { Route as BeritaSlugRouteImport } from './routes/berita.$slug'
+import { Route as AdminDashboardRouteImport } from './routes/admin/dashboard'
+import { Route as AdminEventIndexRouteImport } from './routes/admin/event/index'
+import { Route as AdminBeritaIndexRouteImport } from './routes/admin/berita/index'
+import { Route as AdminAnggotaIndexRouteImport } from './routes/admin/anggota/index'
+import { Route as AdminEventTambahRouteImport } from './routes/admin/event/tambah'
+import { Route as AdminBeritaTambahRouteImport } from './routes/admin/berita/tambah'
+import { Route as AdminAnggotaTambahRouteImport } from './routes/admin/anggota/tambah'
+import { Route as AdminBeritaEditIdRouteImport } from './routes/admin/berita/edit.$id'
 
 const TentangRoute = TentangRouteImport.update({
   id: '/tentang',
@@ -31,6 +43,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PameranRoute = PameranRouteImport.update({
   id: '/pameran',
   path: '/pameran',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontakRoute = KontakRouteImport.update({
@@ -53,82 +70,211 @@ const AnggotaRoute = AnggotaRouteImport.update({
   path: '/anggota',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EventIdRoute = EventIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => EventRoute,
+} as any)
+const BeritaSlugRoute = BeritaSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BeritaRoute,
+} as any)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEventIndexRoute = AdminEventIndexRouteImport.update({
+  id: '/event/',
+  path: '/event/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBeritaIndexRoute = AdminBeritaIndexRouteImport.update({
+  id: '/berita/',
+  path: '/berita/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnggotaIndexRoute = AdminAnggotaIndexRouteImport.update({
+  id: '/anggota/',
+  path: '/anggota/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEventTambahRoute = AdminEventTambahRouteImport.update({
+  id: '/event/tambah',
+  path: '/event/tambah',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBeritaTambahRoute = AdminBeritaTambahRouteImport.update({
+  id: '/berita/tambah',
+  path: '/berita/tambah',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnggotaTambahRoute = AdminAnggotaTambahRouteImport.update({
+  id: '/anggota/tambah',
+  path: '/anggota/tambah',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBeritaEditIdRoute = AdminBeritaEditIdRouteImport.update({
+  id: '/berita/edit/$id',
+  path: '/berita/edit/$id',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/anggota': typeof AnggotaRoute
-  '/berita': typeof BeritaRoute
-  '/event': typeof EventRoute
+  '/berita': typeof BeritaRouteWithChildren
+  '/event': typeof EventRouteWithChildren
   '/kontak': typeof KontakRoute
+  '/login': typeof LoginRoute
   '/pameran': typeof PameranRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/berita/$slug': typeof BeritaSlugRoute
+  '/event/$id': typeof EventIdRoute
+  '/admin/anggota/tambah': typeof AdminAnggotaTambahRoute
+  '/admin/berita/tambah': typeof AdminBeritaTambahRoute
+  '/admin/event/tambah': typeof AdminEventTambahRoute
+  '/admin/anggota/': typeof AdminAnggotaIndexRoute
+  '/admin/berita/': typeof AdminBeritaIndexRoute
+  '/admin/event/': typeof AdminEventIndexRoute
+  '/admin/berita/edit/$id': typeof AdminBeritaEditIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/anggota': typeof AnggotaRoute
-  '/berita': typeof BeritaRoute
-  '/event': typeof EventRoute
+  '/berita': typeof BeritaRouteWithChildren
+  '/event': typeof EventRouteWithChildren
   '/kontak': typeof KontakRoute
+  '/login': typeof LoginRoute
   '/pameran': typeof PameranRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/berita/$slug': typeof BeritaSlugRoute
+  '/event/$id': typeof EventIdRoute
+  '/admin/anggota/tambah': typeof AdminAnggotaTambahRoute
+  '/admin/berita/tambah': typeof AdminBeritaTambahRoute
+  '/admin/event/tambah': typeof AdminEventTambahRoute
+  '/admin/anggota': typeof AdminAnggotaIndexRoute
+  '/admin/berita': typeof AdminBeritaIndexRoute
+  '/admin/event': typeof AdminEventIndexRoute
+  '/admin/berita/edit/$id': typeof AdminBeritaEditIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/anggota': typeof AnggotaRoute
-  '/berita': typeof BeritaRoute
-  '/event': typeof EventRoute
+  '/berita': typeof BeritaRouteWithChildren
+  '/event': typeof EventRouteWithChildren
   '/kontak': typeof KontakRoute
+  '/login': typeof LoginRoute
   '/pameran': typeof PameranRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/berita/$slug': typeof BeritaSlugRoute
+  '/event/$id': typeof EventIdRoute
+  '/admin/anggota/tambah': typeof AdminAnggotaTambahRoute
+  '/admin/berita/tambah': typeof AdminBeritaTambahRoute
+  '/admin/event/tambah': typeof AdminEventTambahRoute
+  '/admin/anggota/': typeof AdminAnggotaIndexRoute
+  '/admin/berita/': typeof AdminBeritaIndexRoute
+  '/admin/event/': typeof AdminEventIndexRoute
+  '/admin/berita/edit/$id': typeof AdminBeritaEditIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/anggota'
     | '/berita'
     | '/event'
     | '/kontak'
+    | '/login'
     | '/pameran'
     | '/sitemap.xml'
     | '/tentang'
+    | '/admin/dashboard'
+    | '/berita/$slug'
+    | '/event/$id'
+    | '/admin/anggota/tambah'
+    | '/admin/berita/tambah'
+    | '/admin/event/tambah'
+    | '/admin/anggota/'
+    | '/admin/berita/'
+    | '/admin/event/'
+    | '/admin/berita/edit/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/anggota'
     | '/berita'
     | '/event'
     | '/kontak'
+    | '/login'
     | '/pameran'
     | '/sitemap.xml'
     | '/tentang'
+    | '/admin/dashboard'
+    | '/berita/$slug'
+    | '/event/$id'
+    | '/admin/anggota/tambah'
+    | '/admin/berita/tambah'
+    | '/admin/event/tambah'
+    | '/admin/anggota'
+    | '/admin/berita'
+    | '/admin/event'
+    | '/admin/berita/edit/$id'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/anggota'
     | '/berita'
     | '/event'
     | '/kontak'
+    | '/login'
     | '/pameran'
     | '/sitemap.xml'
     | '/tentang'
+    | '/admin/dashboard'
+    | '/berita/$slug'
+    | '/event/$id'
+    | '/admin/anggota/tambah'
+    | '/admin/berita/tambah'
+    | '/admin/event/tambah'
+    | '/admin/anggota/'
+    | '/admin/berita/'
+    | '/admin/event/'
+    | '/admin/berita/edit/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   AnggotaRoute: typeof AnggotaRoute
-  BeritaRoute: typeof BeritaRoute
-  EventRoute: typeof EventRoute
+  BeritaRoute: typeof BeritaRouteWithChildren
+  EventRoute: typeof EventRouteWithChildren
   KontakRoute: typeof KontakRoute
+  LoginRoute: typeof LoginRoute
   PameranRoute: typeof PameranRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TentangRoute: typeof TentangRoute
@@ -155,6 +301,13 @@ declare module '@tanstack/react-router' {
       path: '/pameran'
       fullPath: '/pameran'
       preLoaderRoute: typeof PameranRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontak': {
@@ -185,6 +338,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnggotaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -192,15 +352,132 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/event/$id': {
+      id: '/event/$id'
+      path: '/$id'
+      fullPath: '/event/$id'
+      preLoaderRoute: typeof EventIdRouteImport
+      parentRoute: typeof EventRoute
+    }
+    '/berita/$slug': {
+      id: '/berita/$slug'
+      path: '/$slug'
+      fullPath: '/berita/$slug'
+      preLoaderRoute: typeof BeritaSlugRouteImport
+      parentRoute: typeof BeritaRoute
+    }
+    '/admin/dashboard': {
+      id: '/admin/dashboard'
+      path: '/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/event/': {
+      id: '/admin/event/'
+      path: '/event'
+      fullPath: '/admin/event/'
+      preLoaderRoute: typeof AdminEventIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/berita/': {
+      id: '/admin/berita/'
+      path: '/berita'
+      fullPath: '/admin/berita/'
+      preLoaderRoute: typeof AdminBeritaIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/anggota/': {
+      id: '/admin/anggota/'
+      path: '/anggota'
+      fullPath: '/admin/anggota/'
+      preLoaderRoute: typeof AdminAnggotaIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/event/tambah': {
+      id: '/admin/event/tambah'
+      path: '/event/tambah'
+      fullPath: '/admin/event/tambah'
+      preLoaderRoute: typeof AdminEventTambahRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/berita/tambah': {
+      id: '/admin/berita/tambah'
+      path: '/berita/tambah'
+      fullPath: '/admin/berita/tambah'
+      preLoaderRoute: typeof AdminBeritaTambahRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/anggota/tambah': {
+      id: '/admin/anggota/tambah'
+      path: '/anggota/tambah'
+      fullPath: '/admin/anggota/tambah'
+      preLoaderRoute: typeof AdminAnggotaTambahRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/berita/edit/$id': {
+      id: '/admin/berita/edit/$id'
+      path: '/berita/edit/$id'
+      fullPath: '/admin/berita/edit/$id'
+      preLoaderRoute: typeof AdminBeritaEditIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminDashboardRoute: typeof AdminDashboardRoute
+  AdminAnggotaTambahRoute: typeof AdminAnggotaTambahRoute
+  AdminBeritaTambahRoute: typeof AdminBeritaTambahRoute
+  AdminEventTambahRoute: typeof AdminEventTambahRoute
+  AdminAnggotaIndexRoute: typeof AdminAnggotaIndexRoute
+  AdminBeritaIndexRoute: typeof AdminBeritaIndexRoute
+  AdminEventIndexRoute: typeof AdminEventIndexRoute
+  AdminBeritaEditIdRoute: typeof AdminBeritaEditIdRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminDashboardRoute: AdminDashboardRoute,
+  AdminAnggotaTambahRoute: AdminAnggotaTambahRoute,
+  AdminBeritaTambahRoute: AdminBeritaTambahRoute,
+  AdminEventTambahRoute: AdminEventTambahRoute,
+  AdminAnggotaIndexRoute: AdminAnggotaIndexRoute,
+  AdminBeritaIndexRoute: AdminBeritaIndexRoute,
+  AdminEventIndexRoute: AdminEventIndexRoute,
+  AdminBeritaEditIdRoute: AdminBeritaEditIdRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface BeritaRouteChildren {
+  BeritaSlugRoute: typeof BeritaSlugRoute
+}
+
+const BeritaRouteChildren: BeritaRouteChildren = {
+  BeritaSlugRoute: BeritaSlugRoute,
+}
+
+const BeritaRouteWithChildren =
+  BeritaRoute._addFileChildren(BeritaRouteChildren)
+
+interface EventRouteChildren {
+  EventIdRoute: typeof EventIdRoute
+}
+
+const EventRouteChildren: EventRouteChildren = {
+  EventIdRoute: EventIdRoute,
+}
+
+const EventRouteWithChildren = EventRoute._addFileChildren(EventRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   AnggotaRoute: AnggotaRoute,
-  BeritaRoute: BeritaRoute,
-  EventRoute: EventRoute,
+  BeritaRoute: BeritaRouteWithChildren,
+  EventRoute: EventRouteWithChildren,
   KontakRoute: KontakRoute,
+  LoginRoute: LoginRoute,
   PameranRoute: PameranRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TentangRoute: TentangRoute,

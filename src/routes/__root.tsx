@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "HMTI" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "theme-color", content: "#0A0A0A" },
+      { name: "theme-color", content: "#0a1f0f" },
       { name: "twitter:title", content: "HMTI — Himpunan Mahasiswa Teknik Informatika" },
       {
         name: "twitter:description",
@@ -117,6 +117,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", href: "/hmti-logo.jpg" },
+      { rel: "apple-touch-icon", href: "/hmti-logo.jpg" },
     ],
   }),
   shellComponent: RootShell,
