@@ -73,18 +73,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "HMTI — Himpunan Mahasiswa Teknik Informatika" },
-      { name: "description", content: "Pusat informasi, komunitas, dan ekosistem IT kampus untuk mahasiswa Teknik Informatika." },
+      {
+        name: "description",
+        content:
+          "Pusat informasi, komunitas, dan ekosistem IT kampus untuk mahasiswa Teknik Informatika.",
+      },
       { name: "author", content: "HMTI" },
       { property: "og:title", content: "HMTI — Himpunan Mahasiswa Teknik Informatika" },
-      { property: "og:description", content: "Pusat informasi, komunitas, dan ekosistem IT kampus untuk mahasiswa Teknik Informatika." },
+      {
+        property: "og:description",
+        content:
+          "Pusat informasi, komunitas, dan ekosistem IT kampus untuk mahasiswa Teknik Informatika.",
+      },
       { property: "og:site_name", content: "HMTI" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "theme-color", content: "#0A0A0A" },
       { name: "twitter:title", content: "HMTI — Himpunan Mahasiswa Teknik Informatika" },
-      { name: "twitter:description", content: "Pusat informasi, komunitas, dan ekosistem IT kampus untuk mahasiswa Teknik Informatika." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f2c4d91a-9989-497d-93a6-8be5c21e2eba" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f2c4d91a-9989-497d-93a6-8be5c21e2eba" },
+      {
+        name: "twitter:description",
+        content:
+          "Pusat informasi, komunitas, dan ekosistem IT kampus untuk mahasiswa Teknik Informatika.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f2c4d91a-9989-497d-93a6-8be5c21e2eba",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f2c4d91a-9989-497d-93a6-8be5c21e2eba",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

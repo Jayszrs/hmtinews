@@ -10,7 +10,11 @@ export const Route = createFileRoute("/berita")({
   head: () => ({
     meta: [
       { title: "Berita IT — HMTI" },
-      { name: "description", content: "Kumpulan berita, opini, dan artikel seputar teknologi informasi dan komunitas HMTI." },
+      {
+        name: "description",
+        content:
+          "Kumpulan berita, opini, dan artikel seputar teknologi informasi dan komunitas HMTI.",
+      },
       { property: "og:title", content: "Berita IT — HMTI" },
       { property: "og:description", content: "Berita, opini, dan artikel IT pilihan HMTI." },
       { property: "og:url", content: "/berita" },
@@ -19,15 +23,29 @@ export const Route = createFileRoute("/berita")({
   }),
 });
 
-const CATS = ["Semua", "Teknologi", "AI & ML", "Web Dev", "Mobile", "Cybersecurity", "Riset", "Komunitas"];
+const CATS = [
+  "Semua",
+  "Teknologi",
+  "AI & ML",
+  "Web Dev",
+  "Mobile",
+  "Cybersecurity",
+  "Riset",
+  "Komunitas",
+];
 
 function BeritaPage() {
   const [cat, setCat] = useState("Semua");
   const [q, setQ] = useState("");
-  const list = useMemo(() => news.filter(n =>
-    (cat === "Semua" || n.category === cat) &&
-    (!q || n.title.toLowerCase().includes(q.toLowerCase()))
-  ), [cat, q]);
+  const list = useMemo(
+    () =>
+      news.filter(
+        (n) =>
+          (cat === "Semua" || n.category === cat) &&
+          (!q || n.title.toLowerCase().includes(q.toLowerCase())),
+      ),
+    [cat, q],
+  );
 
   const [featured, ...rest] = list.length ? list : news;
 
@@ -57,7 +75,9 @@ function BeritaPage() {
                 key={c}
                 onClick={() => setCat(c)}
                 className={`shrink-0 px-3 h-9 rounded-full font-mono text-[11px] uppercase tracking-widest border transition-colors ${
-                  cat === c ? "bg-red text-bone border-red" : "border-line text-bone-muted hover:text-red hover:border-red"
+                  cat === c
+                    ? "bg-red text-bone border-red"
+                    : "border-line text-bone-muted hover:text-red hover:border-red"
                 }`}
               >
                 {c}
@@ -69,20 +89,36 @@ function BeritaPage() {
 
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="text-sm font-mono text-bone-dim mb-6">Menampilkan {list.length} artikel</div>
+          <div className="text-sm font-mono text-bone-dim mb-6">
+            Menampilkan {list.length} artikel
+          </div>
 
           <article className="group rounded-xl overflow-hidden border border-line bg-surface card-hover mb-10">
             <div className="grid lg:grid-cols-2">
               <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
-                <img src={featured.image} alt={featured.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <span className="absolute top-4 left-4 px-3 py-1 bg-red text-bone font-mono text-[10px] uppercase tracking-widest rounded">📌 Artikel Unggulan</span>
+                <img
+                  src={featured.image}
+                  alt={featured.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <span className="absolute top-4 left-4 px-3 py-1 bg-red text-bone font-mono text-[10px] uppercase tracking-widest rounded">
+                  📌 Artikel Unggulan
+                </span>
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <div className="text-xs font-mono uppercase tracking-widest text-red">{featured.category}</div>
-                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold text-bone leading-tight group-hover:text-red transition-colors">{featured.title}</h2>
+                <div className="text-xs font-mono uppercase tracking-widest text-red">
+                  {featured.category}
+                </div>
+                <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold text-bone leading-tight group-hover:text-red transition-colors">
+                  {featured.title}
+                </h2>
                 <p className="mt-4 text-bone-muted">{featured.excerpt}</p>
                 <div className="mt-6 flex items-center gap-3 text-xs font-mono text-bone-dim uppercase tracking-widest">
-                  <span>{featured.author}</span><span className="text-red">•</span><span>{featured.date}</span><span className="text-red">•</span><span>{featured.readTime}</span>
+                  <span>{featured.author}</span>
+                  <span className="text-red">•</span>
+                  <span>{featured.date}</span>
+                  <span className="text-red">•</span>
+                  <span>{featured.readTime}</span>
                 </div>
               </div>
             </div>
@@ -90,19 +126,34 @@ function BeritaPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {rest.map((n) => (
-              <article key={n.slug} className="group rounded-xl overflow-hidden border border-line bg-surface card-hover flex flex-col">
+              <article
+                key={n.slug}
+                className="group rounded-xl overflow-hidden border border-line bg-surface card-hover flex flex-col"
+              >
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <img src={n.image} alt={n.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 bg-ink/80 backdrop-blur text-red border border-red/40 font-mono text-[10px] uppercase tracking-widest rounded">{n.category}</span>
+                  <img
+                    src={n.image}
+                    alt={n.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <span className="absolute top-3 left-3 px-2.5 py-1 bg-ink/80 backdrop-blur text-red border border-red/40 font-mono text-[10px] uppercase tracking-widest rounded">
+                    {n.category}
+                  </span>
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="font-heading text-lg font-bold text-bone leading-snug group-hover:text-red transition-colors line-clamp-2">{n.title}</h3>
+                  <h3 className="font-heading text-lg font-bold text-bone leading-snug group-hover:text-red transition-colors line-clamp-2">
+                    {n.title}
+                  </h3>
                   <p className="mt-2 text-sm text-bone-muted line-clamp-2">{n.excerpt}</p>
                   <div className="mt-auto pt-4 flex items-center justify-between text-xs font-mono text-bone-dim">
                     <span>{n.date}</span>
                     <div className="flex items-center gap-3">
-                      <span className="flex items-center gap-1"><Eye className="w-3 h-3" /> {Math.floor(Math.random()*900)+100}</span>
-                      <span className="flex items-center gap-1"><MessageCircle className="w-3 h-3" /> {Math.floor(Math.random()*30)}</span>
+                      <span className="flex items-center gap-1">
+                        <Eye className="w-3 h-3" /> {Math.floor(Math.random() * 900) + 100}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <MessageCircle className="w-3 h-3" /> {Math.floor(Math.random() * 30)}
+                      </span>
                       <Bookmark className="w-3 h-3 hover:text-red cursor-pointer" />
                     </div>
                   </div>

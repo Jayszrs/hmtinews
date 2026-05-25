@@ -24,12 +24,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [path]);
+  useEffect(() => {
+    setOpen(false);
+  }, [path]);
 
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[rgba(10,10,10,0.85)] backdrop-blur-xl shadow-[0_4px_32px_rgba(0,0,0,0.5)]" : "bg-transparent"
+        scrolled
+          ? "bg-[rgba(10,10,10,0.85)] backdrop-blur-xl shadow-[0_4px_32px_rgba(0,0,0,0.5)]"
+          : "bg-transparent"
       } border-b border-[color-mix(in_oklab,var(--red)_15%,transparent)]`}
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8 h-16 flex items-center justify-between">
@@ -66,7 +70,10 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <button aria-label="Cari" className="w-9 h-9 grid place-items-center rounded-md border border-line text-bone-muted hover:text-red hover:border-red transition-colors">
+          <button
+            aria-label="Cari"
+            className="w-9 h-9 grid place-items-center rounded-md border border-line text-bone-muted hover:text-red hover:border-red transition-colors"
+          >
             <Search className="w-4 h-4" />
           </button>
           <Link
@@ -96,14 +103,19 @@ export function Navbar() {
                   key={item.to}
                   to={item.to}
                   className={`px-3 py-3 rounded-md font-heading uppercase tracking-wider text-sm ${
-                    active ? "text-red bg-[color-mix(in_oklab,var(--red)_10%,transparent)]" : "text-bone-muted"
+                    active
+                      ? "text-red bg-[color-mix(in_oklab,var(--red)_10%,transparent)]"
+                      : "text-bone-muted"
                   }`}
                 >
                   {item.label}
                 </Link>
               );
             })}
-            <Link to="/kontak" className="mt-3 px-4 py-3 text-center font-heading uppercase tracking-wider text-sm gradient-red text-bone rounded-md">
+            <Link
+              to="/kontak"
+              className="mt-3 px-4 py-3 text-center font-heading uppercase tracking-wider text-sm gradient-red text-bone rounded-md"
+            >
               Gabung HMTI
             </Link>
           </nav>

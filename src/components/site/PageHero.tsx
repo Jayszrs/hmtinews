@@ -26,7 +26,9 @@ export function PageHero({ eyebrow, title, subtitle, crumbs }: Props) {
         <h1 className="font-display text-5xl md:text-7xl text-bone leading-[0.95] max-w-4xl">
           {title}
         </h1>
-        {subtitle && <p className="mt-6 max-w-2xl text-bone-muted text-lg leading-relaxed">{subtitle}</p>}
+        {subtitle && (
+          <p className="mt-6 max-w-2xl text-bone-muted text-lg leading-relaxed">{subtitle}</p>
+        )}
       </div>
     </section>
   );
