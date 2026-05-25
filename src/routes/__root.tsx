@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HMTI — Himpunan Mahasiswa Teknik Informatika" },
+      { title: "HMTI - Himpunan Mahasiswa Teknik Informatika" },
       {
         name: "description",
         content:
           "Pusat informasi, komunitas, dan ekosistem IT kampus untuk mahasiswa Teknik Informatika.",
       },
       { name: "author", content: "HMTI" },
-      { property: "og:title", content: "HMTI — Himpunan Mahasiswa Teknik Informatika" },
+      { property: "og:title", content: "HMTI - Himpunan Mahasiswa Teknik Informatika" },
       {
         property: "og:description",
         content:
@@ -88,8 +88,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "HMTI" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "theme-color", content: "#0a1f0f" },
-      { name: "twitter:title", content: "HMTI — Himpunan Mahasiswa Teknik Informatika" },
+      { name: "theme-color", content: "#1a1515" },
+      { name: "twitter:title", content: "HMTI - Himpunan Mahasiswa Teknik Informatika" },
       {
         name: "twitter:description",
         content:
@@ -111,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap",
       },
       {
         rel: "stylesheet",

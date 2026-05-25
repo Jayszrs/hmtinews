@@ -36,7 +36,7 @@ function EventPage() {
   }, [events, filter]);
 
   return (
-    <div className="min-h-screen bg-hmti-dark text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-20">
         <section className="hmti-hero-pattern px-5 py-24 lg:px-8">
@@ -44,8 +44,10 @@ function EventPage() {
             <div className="font-mono text-xs uppercase tracking-[0.28em] text-hmti-gold">
               Kalender Kegiatan
             </div>
-            <h1 className="mt-4 font-display text-6xl leading-none md:text-8xl">Event HMTI</h1>
-            <p className="mt-5 max-w-2xl text-white/65">
+            <h1 className="mt-4 text-5xl font-black leading-tight text-hmti-dark md:text-7xl">
+              Event HMTI
+            </h1>
+            <p className="mt-5 max-w-2xl text-ink/65">
               Agenda publik, workshop, seminar, dan kompetisi HMTI.
             </p>
           </AnimatedSection>
@@ -59,8 +61,8 @@ function EventPage() {
                 onClick={() => setFilter(item)}
                 className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest ${
                   filter === item
-                    ? "border-hmti-gold bg-hmti-gold text-hmti-dark"
-                    : "border-white/10 text-white/60 hover:border-hmti-gold hover:text-hmti-gold"
+                    ? "border-hmti-gold bg-hmti-gold text-white"
+                    : "border-line bg-card text-ink/60 hover:border-hmti-gold hover:text-hmti-gold"
                 }`}
               >
                 {item}

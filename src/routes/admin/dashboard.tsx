@@ -73,9 +73,9 @@ function Dashboard() {
                 <XAxis dataKey="month" stroke="rgba(255,255,255,.45)" />
                 <YAxis stroke="rgba(255,255,255,.45)" />
                 <Tooltip
-                  contentStyle={{ background: "#0a1f0f", border: "1px solid rgba(245,197,24,.3)" }}
+                  contentStyle={{ background: "#1a1515", border: "1px solid rgba(168,0,0,.35)" }}
                 />
-                <Bar dataKey="berita" fill="#f5c518" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="berita" fill="#a80000" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -91,7 +91,7 @@ function Dashboard() {
               <Link
                 key={to}
                 to={to}
-                className="inline-flex items-center gap-2 rounded-md border border-hmti-gold/35 px-4 py-3 text-sm text-hmti-gold hover:bg-hmti-gold hover:text-hmti-dark"
+                className="inline-flex items-center gap-2 rounded-md border border-hmti-gold/35 px-4 py-3 text-sm text-hmti-gold hover:bg-hmti-gold hover:text-white"
               >
                 <FilePlus2 className="h-4 w-4" /> {label}
               </Link>

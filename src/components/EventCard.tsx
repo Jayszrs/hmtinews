@@ -33,7 +33,7 @@ export function EventCard({ event }: { event: HmtiEvent }) {
   }, [within72h]);
 
   return (
-    <article className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition hover:-translate-y-1 hover:border-hmti-gold/50">
+    <article className="group overflow-hidden rounded-xl border border-line bg-background shadow-card transition hover:-translate-y-1 hover:border-hmti-gold/45">
       <Link to="/event/$id" params={{ id: event.id }} className="block">
         <div className="relative aspect-video overflow-hidden">
           <img
@@ -48,19 +48,19 @@ export function EventCard({ event }: { event: HmtiEvent }) {
               status === "Hari Ini"
                 ? "animate-pulse border-red-400 bg-red-500 text-white"
                 : status === "Selesai"
-                  ? "border-white/20 bg-white/10 text-white/60"
-                  : "border-sky-300/40 bg-sky-400/15 text-sky-200"
+                  ? "border-ink/20 bg-card text-ink/60"
+                  : "border-hmti-gold/40 bg-card text-hmti-gold"
             }`}
           >
             {status}
           </span>
         </div>
         <div className="p-5">
-          <h3 className="font-heading text-xl font-bold text-white transition group-hover:text-hmti-gold">
+          <h3 className="text-xl font-black text-hmti-dark transition group-hover:text-hmti-gold">
             {event.title}
           </h3>
-          <p className="mt-2 line-clamp-2 text-sm text-white/65">{event.description}</p>
-          <div className="mt-4 space-y-2 text-sm text-white/65">
+          <p className="mt-2 line-clamp-2 text-sm text-ink/62">{event.description}</p>
+          <div className="mt-4 space-y-2 text-sm text-ink/65">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4 text-hmti-gold" />
               {new Date(event.startAt).toLocaleDateString("id-ID", {

@@ -37,7 +37,7 @@ export function AdminLayout({ title, children }: { title: string; children: Reac
   return (
     <div className="min-h-screen bg-hmti-dark text-white">
       <aside
-        className={`fixed inset-y-0 left-0 z-40 hidden border-r border-white/10 bg-[#07170b] transition-all lg:block ${
+        className={`fixed inset-y-0 left-0 z-40 hidden border-r border-white/10 bg-hmti-dark transition-all lg:block ${
           collapsed ? "w-20" : "w-60"
         }`}
       >
@@ -61,7 +61,7 @@ export function AdminLayout({ title, children }: { title: string; children: Reac
                 to={item.to}
                 className={`flex items-center gap-3 rounded-md px-3 py-3 text-sm transition ${
                   active
-                    ? "bg-hmti-gold text-hmti-dark"
+                    ? "bg-hmti-gold text-white"
                     : "text-white/65 hover:bg-white/8 hover:text-white"
                 }`}
               >
@@ -106,7 +106,7 @@ export function AdminLayout({ title, children }: { title: string; children: Reac
                 logoutDemo();
                 void router.navigate({ to: "/login" });
               }}
-              className="inline-flex h-9 items-center gap-2 rounded-md border border-hmti-gold/40 px-3 text-sm text-hmti-gold transition hover:bg-hmti-gold hover:text-hmti-dark"
+              className="inline-flex h-9 items-center gap-2 rounded-md border border-hmti-gold/40 px-3 text-sm text-hmti-gold transition hover:bg-hmti-gold hover:text-white"
             >
               <LogOut className="h-4 w-4" />
               Logout

@@ -48,7 +48,7 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-hmti-dark text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main>
         <ParallaxHero />
@@ -77,8 +77,8 @@ function SectionHead({
   return (
     <AnimatedSection id={id as never} className="mx-auto mb-10 max-w-3xl text-center">
       <div className="font-mono text-xs uppercase tracking-[0.28em] text-hmti-gold">{eyebrow}</div>
-      <h2 className="mt-3 font-display text-5xl leading-none text-white md:text-6xl">{title}</h2>
-      <p className="mt-4 text-white/62">{sub}</p>
+      <h2 className="mt-3 text-4xl font-black leading-tight text-hmti-dark md:text-5xl">{title}</h2>
+      <p className="mt-4 text-ink/62">{sub}</p>
     </AnimatedSection>
   );
 }
@@ -90,7 +90,7 @@ function StatsStrip({ news, events, members }: { news: number; events: number; m
     { label: "Anggota", value: members, icon: UsersRound },
   ];
   return (
-    <section className="border-y border-hmti-gold/15 bg-[#07170b]">
+    <section className="border-y border-hmti-dark/10 bg-hmti-dark text-white">
       <div className="mx-auto grid max-w-7xl gap-0 px-5 py-8 md:grid-cols-3 lg:px-8">
         {stats.map((stat) => (
           <AnimatedSection
@@ -115,7 +115,7 @@ function StatsStrip({ news, events, members }: { news: number; events: number; m
 function NewsSection({ loading, news }: { loading: boolean; news: NewsPost[] }) {
   const list = news.slice(0, 3);
   return (
-    <section id="berita" className="bg-hmti-dark px-5 py-24 lg:px-8">
+    <section id="berita" className="bg-background px-5 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHead
           id="berita-title"
@@ -135,7 +135,7 @@ function NewsSection({ loading, news }: { loading: boolean; news: NewsPost[] }) 
         <div className="mt-10 text-center">
           <Link
             to="/berita"
-            className="inline-flex items-center gap-2 rounded-md border border-hmti-gold/50 px-5 py-3 font-heading text-sm uppercase tracking-wider text-hmti-gold transition hover:bg-hmti-gold hover:text-hmti-dark"
+            className="inline-flex items-center gap-2 rounded-md border border-hmti-gold/40 bg-card px-5 py-3 text-sm font-bold uppercase tracking-wider text-hmti-gold transition hover:bg-hmti-gold hover:text-white"
           >
             Lihat Semua Berita <ArrowRight className="h-4 w-4" />
           </Link>
@@ -156,7 +156,7 @@ function EventSection({ events }: { events: HmtiEvent[] }) {
   });
 
   return (
-    <section id="event" className="border-y border-white/10 bg-[#07170b] px-5 py-24 lg:px-8">
+    <section id="event" className="border-y border-line bg-card px-5 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHead
           id="event-title"
@@ -174,7 +174,7 @@ function EventSection({ events }: { events: HmtiEvent[] }) {
         <div className="mt-10 text-center">
           <Link
             to="/event"
-            className="inline-flex items-center gap-2 rounded-md bg-hmti-gold px-5 py-3 font-heading text-sm uppercase tracking-wider text-hmti-dark transition hover:-translate-y-1 hover:shadow-gold"
+            className="inline-flex items-center gap-2 rounded-md bg-hmti-gold px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition hover:-translate-y-1 hover:shadow-gold"
           >
             Lihat Semua Event <ArrowRight className="h-4 w-4" />
           </Link>
@@ -191,7 +191,7 @@ function MemberSection({ members }: { members: HmtiMember[] }) {
     filter === "Semua" ? members : members.filter((member) => member.year === filter);
 
   return (
-    <section id="anggota" className="bg-hmti-dark px-5 py-24 lg:px-8">
+    <section id="anggota" className="bg-background px-5 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHead
           id="anggota-title"
@@ -207,8 +207,8 @@ function MemberSection({ members }: { members: HmtiMember[] }) {
               onClick={() => setFilter(year)}
               className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest transition ${
                 filter === year
-                  ? "border-hmti-gold bg-hmti-gold text-hmti-dark"
-                  : "border-white/10 text-white/60 hover:border-hmti-gold hover:text-hmti-gold"
+                  ? "border-hmti-gold bg-hmti-gold text-white"
+                  : "border-line bg-card text-ink/60 hover:border-hmti-gold hover:text-hmti-gold"
               }`}
             >
               {year === "Semua" ? "Semua" : `Angkatan ${year}`}
@@ -235,7 +235,7 @@ function StructuralSection({ members }: { members: HmtiMember[] }) {
   const leaders = members.filter((member) => member.position.toLowerCase().includes("kadiv"));
 
   return (
-    <section id="struktural" className="border-t border-white/10 bg-[#07170b] px-5 py-24 lg:px-8">
+    <section id="struktural" className="border-t border-line bg-card px-5 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHead
           id="struktural-title"
@@ -273,7 +273,7 @@ function OrgNode({ member, level, delay }: { member?: HmtiMember; level: string;
     <AnimatedSection
       as="div"
       delay={delay}
-      className="mx-auto max-w-sm rounded-lg border border-hmti-gold/25 bg-white/[0.04] p-5 text-center"
+      className="mx-auto max-w-sm rounded-lg border border-line bg-background p-5 text-center shadow-card"
     >
       <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-hmti-gold bg-hmti-green font-heading text-lg">
         {member.name
@@ -282,7 +282,7 @@ function OrgNode({ member, level, delay }: { member?: HmtiMember; level: string;
           .join("")
           .slice(0, 2)}
       </div>
-      <div className="mt-4 font-heading text-lg font-bold">{member.name}</div>
+      <div className="mt-4 text-lg font-bold text-hmti-dark">{member.name}</div>
       <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-hmti-gold">
         {level}
       </div>

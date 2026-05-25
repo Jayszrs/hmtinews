@@ -4,14 +4,14 @@ import { HmtiLogo } from "@/components/HmtiLogo";
 
 export function Footer() {
   return (
-    <footer id="kontak" className="border-t border-hmti-gold/20 bg-[#07170b] text-white">
+    <footer id="kontak" className="border-t border-hmti-gold/20 bg-hmti-dark text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-3 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
             <HmtiLogo className="h-12 w-12" />
             <div>
-              <div className="font-display text-3xl">HMTI</div>
-              <div className="font-mono text-[10px] uppercase tracking-widest text-hmti-gold">
+              <div className="text-3xl font-black">HMTI</div>
+              <div className="text-[10px] font-bold uppercase tracking-widest text-red-200">
                 Teknik Informatika
               </div>
             </div>
@@ -23,9 +23,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-heading text-sm uppercase tracking-wider text-hmti-gold">
-            Quick Links
-          </h4>
+          <h4 className="text-sm font-bold uppercase tracking-wider text-red-200">Quick Links</h4>
           <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-white/65">
             {[
               ["/berita", "Berita"],
@@ -43,7 +41,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-heading text-sm uppercase tracking-wider text-hmti-gold">Kontak</h4>
+          <h4 className="text-sm font-bold uppercase tracking-wider text-red-200">Kontak</h4>
           <div className="mt-5 space-y-3 text-sm text-white/65">
             <div className="flex gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-hmti-gold" />

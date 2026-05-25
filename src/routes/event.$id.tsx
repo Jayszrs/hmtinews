@@ -26,10 +26,10 @@ function EventDetail() {
   const event = events.find((item) => item.id === id);
   if (!event) {
     return (
-      <div className="min-h-screen bg-hmti-dark text-white">
+      <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <div className="mx-auto max-w-3xl px-5 py-40 text-center">
-          <h1 className="font-display text-6xl">Event tidak ditemukan</h1>
+          <h1 className="text-5xl font-black text-hmti-dark">Event tidak ditemukan</h1>
           <Link to="/event" className="mt-6 inline-flex text-hmti-gold">
             Kembali ke event
           </Link>
@@ -46,7 +46,7 @@ function EventDetail() {
   const seconds = remain % 60;
 
   return (
-    <div className="min-h-screen bg-hmti-dark text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-20">
         <section className="relative min-h-[64vh] overflow-hidden">
@@ -67,7 +67,7 @@ function EventDetail() {
         </section>
         <section className="mx-auto grid max-w-7xl gap-8 px-5 py-16 lg:grid-cols-[1fr_360px] lg:px-8">
           <AnimatedSection>
-            <p className="text-lg leading-8 text-white/70">{event.description}</p>
+            <p className="text-lg leading-8 text-ink/70">{event.description}</p>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               <Info
                 icon={Calendar}
@@ -78,7 +78,7 @@ function EventDetail() {
               <Info icon={Users} label="Kapasitas" value={`${event.capacity} peserta`} />
             </div>
           </AnimatedSection>
-          <aside className="rounded-lg border border-hmti-gold/25 bg-white/[0.04] p-6">
+          <aside className="rounded-lg border border-line bg-card p-6 shadow-card">
             <div className="font-heading text-xl font-bold text-hmti-gold">Countdown</div>
             <div className="mt-5 grid grid-cols-4 gap-2 text-center">
               {[
@@ -88,10 +88,10 @@ function EventDetail() {
                 ["Detik", seconds],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-md bg-hmti-gold/10 p-3">
-                  <div className="font-display text-3xl text-hmti-gold">
+                  <div className="text-3xl font-black text-hmti-gold">
                     {String(value).padStart(2, "0")}
                   </div>
-                  <div className="font-mono text-[9px] uppercase tracking-widest text-white/45">
+                  <div className="text-[9px] font-bold uppercase tracking-widest text-ink/45">
                     {label}
                   </div>
                 </div>
@@ -99,7 +99,7 @@ function EventDetail() {
             </div>
             <a
               href={event.registrationUrl}
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-hmti-gold px-4 py-3 font-heading text-sm uppercase tracking-wider text-hmti-dark"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-hmti-gold px-4 py-3 text-sm font-bold uppercase tracking-wider text-white"
             >
               Link Pendaftaran <ExternalLink className="h-4 w-4" />
             </a>
@@ -121,12 +121,12 @@ function Info({
   value: string;
 }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+    <div className="rounded-lg border border-line bg-card p-5 shadow-card">
       <Icon className="h-5 w-5 text-hmti-gold" />
-      <div className="mt-3 font-mono text-[10px] uppercase tracking-widest text-white/40">
+      <div className="mt-3 text-[10px] font-bold uppercase tracking-widest text-ink/40">
         {label}
       </div>
-      <div className="mt-1 text-sm text-white/75">{value}</div>
+      <div className="mt-1 text-sm text-ink/75">{value}</div>
     </div>
   );
 }

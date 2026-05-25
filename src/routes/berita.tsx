@@ -29,7 +29,7 @@ function BeritaPage() {
     category === "Semua" ? items : items.filter((item) => item.category === category);
 
   return (
-    <div className="min-h-screen bg-hmti-dark text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-20">
         <section className="hmti-hero-pattern relative overflow-hidden px-5 py-24 lg:px-8">
@@ -38,8 +38,10 @@ function BeritaPage() {
             <div className="font-mono text-xs uppercase tracking-[0.28em] text-hmti-gold">
               Arsip Berita
             </div>
-            <h1 className="mt-4 font-display text-6xl leading-none md:text-8xl">Berita HMTI</h1>
-            <p className="mt-5 max-w-2xl text-white/65">
+            <h1 className="mt-4 text-5xl font-black leading-tight text-hmti-dark md:text-7xl">
+              Berita HMTI
+            </h1>
+            <p className="mt-5 max-w-2xl text-ink/65">
               Informasi akademik, organisasi, event, dan pengumuman resmi HMTI.
             </p>
           </AnimatedSection>
@@ -54,8 +56,8 @@ function BeritaPage() {
                 onClick={() => setCategory(item)}
                 className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest ${
                   category === item
-                    ? "border-hmti-gold bg-hmti-gold text-hmti-dark"
-                    : "border-white/10 text-white/60 hover:border-hmti-gold hover:text-hmti-gold"
+                    ? "border-hmti-gold bg-hmti-gold text-white"
+                    : "border-line bg-card text-ink/60 hover:border-hmti-gold hover:text-hmti-gold"
                 }`}
               >
                 {item}
@@ -74,7 +76,7 @@ function BeritaPage() {
               <button
                 type="button"
                 onClick={() => setVisible((value) => value + 6)}
-                className="rounded-md bg-hmti-gold px-5 py-3 font-heading text-sm uppercase tracking-wider text-hmti-dark"
+                className="rounded-md bg-hmti-gold px-5 py-3 text-sm font-bold uppercase tracking-wider text-white"
               >
                 Load More
               </button>

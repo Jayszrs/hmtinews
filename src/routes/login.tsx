@@ -50,7 +50,7 @@ function LoginPage() {
 
       <form
         onSubmit={submit}
-        className={`relative z-10 w-full max-w-md rounded-xl border border-hmti-gold/35 bg-[#07170b]/88 p-8 shadow-2xl backdrop-blur-xl transition ${
+        className={`relative z-10 w-full max-w-md rounded-xl border border-hmti-gold/35 bg-hmti-dark/90 p-8 shadow-2xl backdrop-blur-xl transition ${
           error ? "animate-[loginShake_.45s_ease]" : ""
         } ${success ? "[transform:rotateY(180deg)]" : ""}`}
       >
@@ -77,7 +77,7 @@ function LoginPage() {
           {error && <p className="text-sm text-red-300">Kredensial salah. Coba lagi.</p>}
           <button
             type="submit"
-            className="relative h-12 w-full overflow-hidden rounded-md bg-hmti-gold font-heading text-sm uppercase tracking-wider text-hmti-dark transition hover:-translate-y-0.5 hover:shadow-gold"
+            className="relative h-12 w-full overflow-hidden rounded-md bg-hmti-gold text-sm font-bold uppercase tracking-wider text-white transition hover:-translate-y-0.5 hover:shadow-gold"
           >
             Masuk
           </button>

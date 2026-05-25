@@ -31,7 +31,7 @@ function AdminEvent() {
               onClick={() => setFilter(item)}
               className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest ${
                 filter === item
-                  ? "border-hmti-gold bg-hmti-gold text-hmti-dark"
+                  ? "border-hmti-gold bg-hmti-gold text-white"
                   : "border-white/10 text-white/60"
               }`}
             >

@@ -62,18 +62,18 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "border-hmti-gold/20 bg-hmti-dark/82 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-xl"
-          : "border-transparent bg-transparent"
+          ? "border-line bg-card/95 shadow-[0_10px_30px_rgba(26,21,21,0.12)] backdrop-blur-xl"
+          : "border-line bg-card/92 backdrop-blur-xl"
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         <Link to="/" className="group flex items-center gap-3">
           <HmtiLogo className="h-12 w-12 transition group-hover:rotate-3" />
           <div className="leading-none">
-            <div className="font-display text-3xl tracking-wider text-white">
+            <div className="text-2xl font-black tracking-tight text-hmti-dark">
               HM<span className="text-hmti-gold">TI</span>
             </div>
-            <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.24em] text-white/50">
+            <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.24em] text-ink/45">
               Universitas Bani Saleh
             </div>
           </div>
@@ -92,7 +92,7 @@ export function Navbar() {
                 key={item.to}
                 to={item.to}
                 className={`underline-anim font-heading text-sm uppercase tracking-wider transition ${
-                  active ? "text-hmti-gold" : "text-white/65 hover:text-white"
+                  active ? "text-hmti-gold" : "text-ink/65 hover:text-hmti-dark"
                 }`}
                 data-active={active}
               >
@@ -104,34 +104,34 @@ export function Navbar() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <div
-            className={`flex h-10 items-center overflow-hidden rounded-md border border-white/10 bg-white/[0.03] transition-all ${
+            className={`flex h-10 items-center overflow-hidden rounded-md border border-line bg-background transition-all ${
               searchOpen ? "w-56" : "w-10"
             }`}
           >
             <button
               type="button"
               aria-label="Cari"
-              className="grid h-10 w-10 shrink-0 place-items-center text-white/65 hover:text-hmti-gold"
+              className="grid h-10 w-10 shrink-0 place-items-center text-ink/65 hover:text-hmti-gold"
               onClick={() => setSearchOpen((value) => !value)}
             >
               <Search className="h-4 w-4" />
             </button>
             <input
               placeholder="Cari berita..."
-              className="min-w-0 flex-1 bg-transparent pr-3 text-sm text-white outline-none placeholder:text-white/35"
+              className="min-w-0 flex-1 bg-transparent pr-3 text-sm text-ink outline-none placeholder:text-ink/35"
             />
           </div>
           <button
             type="button"
             onClick={toggleTheme}
-            className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-white/65 transition hover:border-hmti-gold hover:text-hmti-gold"
+            className="grid h-10 w-10 place-items-center rounded-md border border-line text-ink/65 transition hover:border-hmti-gold hover:text-hmti-gold"
             aria-label="Toggle dark mode"
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <Link
             to="/login"
-            className="inline-flex h-10 items-center rounded-md border border-hmti-gold/50 px-4 font-heading text-sm uppercase tracking-wider text-hmti-gold transition hover:bg-hmti-gold hover:text-hmti-dark"
+            className="inline-flex h-10 items-center rounded-md bg-hmti-gold px-4 text-sm font-bold uppercase tracking-wider text-white transition hover:bg-hmti-gold-light"
           >
             Login Admin
           </Link>
@@ -139,7 +139,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="relative grid h-11 w-11 place-items-center rounded-md border border-white/10 text-white lg:hidden"
+          className="relative grid h-11 w-11 place-items-center rounded-md border border-line text-hmti-dark lg:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label="Toggle menu"
         >
@@ -149,7 +149,7 @@ export function Navbar() {
       </div>
 
       <div
-        className={`overflow-hidden border-t border-white/10 bg-hmti-dark/95 backdrop-blur-xl transition-all lg:hidden ${
+        className={`overflow-hidden border-t border-line bg-card/98 backdrop-blur-xl transition-all lg:hidden ${
           open ? "max-h-[520px]" : "max-h-0 border-transparent"
         }`}
       >
@@ -158,14 +158,14 @@ export function Navbar() {
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-md px-3 py-3 font-heading text-sm uppercase tracking-wider text-white/75 hover:bg-white/8 hover:text-hmti-gold"
+              className="rounded-md px-3 py-3 text-sm font-bold uppercase tracking-wider text-ink/75 hover:bg-background hover:text-hmti-gold"
             >
               {item.label}
             </Link>
           ))}
           <Link
             to="/login"
-            className="mt-2 rounded-md border border-hmti-gold/50 px-3 py-3 text-center font-heading text-sm uppercase tracking-wider text-hmti-gold"
+            className="mt-2 rounded-md bg-hmti-gold px-3 py-3 text-center text-sm font-bold uppercase tracking-wider text-white"
           >
             Login Admin
           </Link>

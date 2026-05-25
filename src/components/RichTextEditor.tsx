@@ -45,7 +45,7 @@ export function RichTextEditor({
             key={tool.label}
             type="button"
             onClick={() => exec(tool.command, tool.value)}
-            className="grid h-9 w-9 place-items-center rounded-md text-white/70 transition hover:bg-hmti-gold hover:text-hmti-dark"
+            className="grid h-9 w-9 place-items-center rounded-md text-white/70 transition hover:bg-hmti-gold hover:text-white"
             aria-label={tool.label}
           >
             <tool.icon className="h-4 w-4" />
@@ -57,7 +57,7 @@ export function RichTextEditor({
             const url = prompt("Masukkan URL");
             if (url) exec("createLink", url);
           }}
-          className="grid h-9 w-9 place-items-center rounded-md text-white/70 transition hover:bg-hmti-gold hover:text-hmti-dark"
+          className="grid h-9 w-9 place-items-center rounded-md text-white/70 transition hover:bg-hmti-gold hover:text-white"
           aria-label="Link"
         >
           <LinkIcon className="h-4 w-4" />
