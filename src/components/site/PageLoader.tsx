@@ -1,5 +1,6 @@
 import { useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { HmtiLogo } from "@/components/HmtiLogo";
 
 export function PageLoader() {
   const isLoading = useRouterState({ select: (s) => s.isLoading || s.isTransitioning });
@@ -40,23 +41,17 @@ export function PageLoader() {
         }}
       />
       <div className="relative flex flex-col items-center gap-6">
-        <div className="relative h-24 w-24">
-          <div className="absolute inset-0 rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-xl" />
+        <div className="relative h-28 w-28">
           <div
-            className="absolute inset-0 rounded-3xl"
+            className="absolute -inset-3 rounded-full animate-[spin_1.6s_linear_infinite]"
             style={{
               background:
-                "radial-gradient(circle at 70% 30%, rgba(230,0,35,0.9), rgba(10,10,10,0.2) 70%)",
+                "conic-gradient(from 0deg, transparent 0%, #ff2a44 70%, transparent 100%)",
+              mask: "radial-gradient(circle, transparent 58%, #000 60%)",
+              WebkitMask: "radial-gradient(circle, transparent 58%, #000 60%)",
             }}
           />
-          <div className="absolute inset-3 rounded-2xl border border-white/10 animate-[spin_1.4s_linear_infinite]"
-            style={{
-              borderTopColor: "#ff2a44",
-              borderRightColor: "transparent",
-              borderBottomColor: "transparent",
-              borderLeftColor: "transparent",
-            }}
-          />
+          <HmtiLogo className="relative h-full w-full animate-[pulse_1.8s_ease-in-out_infinite]" />
         </div>
         <div className="font-display text-[11px] uppercase tracking-[0.5em] text-white/70">
           HMTI
