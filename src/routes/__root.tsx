@@ -105,6 +105,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/f2c4d91a-9989-497d-93a6-8be5c21e2eba",
       },
+      { name: "description", content: "HMTI Digital Hub is the official website for the Informatics Engineering Student Association (HMTI)." },
+      { property: "og:description", content: "HMTI Digital Hub is the official website for the Informatics Engineering Student Association (HMTI)." },
+      { name: "twitter:description", content: "HMTI Digital Hub is the official website for the Informatics Engineering Student Association (HMTI)." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/84d62a63-434e-40c5-9000-17ed42559724/id-preview-cbb833ae--5282fc3d-1404-4927-91ea-fcf691d86233.lovable.app-1779702892097.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/84d62a63-434e-40c5-9000-17ed42559724/id-preview-cbb833ae--5282fc3d-1404-4927-91ea-fcf691d86233.lovable.app-1779702892097.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
