@@ -29,7 +29,7 @@ function EventDetail() {
       <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <div className="mx-auto max-w-3xl px-5 py-40 text-center">
-          <h1 className="text-5xl font-black text-hmti-dark">Event tidak ditemukan</h1>
+          <h1 className="text-5xl font-black text-foreground">Event tidak ditemukan</h1>
           <Link to="/event" className="mt-6 inline-flex text-hmti-gold">
             Kembali ke event
           </Link>
@@ -67,7 +67,7 @@ function EventDetail() {
         </section>
         <section className="mx-auto grid max-w-7xl gap-8 px-5 py-16 lg:grid-cols-[1fr_360px] lg:px-8">
           <AnimatedSection>
-            <p className="text-lg leading-8 text-ink/70">{event.description}</p>
+            <p className="text-lg leading-8 text-muted-foreground">{event.description}</p>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               <Info
                 icon={Calendar}
@@ -91,7 +91,7 @@ function EventDetail() {
                   <div className="text-3xl font-black text-hmti-gold">
                     {String(value).padStart(2, "0")}
                   </div>
-                  <div className="text-[9px] font-bold uppercase tracking-widest text-ink/45">
+                  <div className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">
                     {label}
                   </div>
                 </div>
@@ -123,10 +123,10 @@ function Info({
   return (
     <div className="rounded-lg border border-line bg-card p-5 shadow-card">
       <Icon className="h-5 w-5 text-hmti-gold" />
-      <div className="mt-3 text-[10px] font-bold uppercase tracking-widest text-ink/40">
+      <div className="mt-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
         {label}
       </div>
-      <div className="mt-1 text-sm text-ink/75">{value}</div>
+      <div className="mt-1 text-sm text-foreground">{value}</div>
     </div>
   );
 }

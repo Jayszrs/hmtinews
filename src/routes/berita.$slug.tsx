@@ -33,7 +33,7 @@ function NewsDetail() {
       <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <div className="mx-auto max-w-3xl px-5 py-40 text-center">
-          <h1 className="text-5xl font-black text-hmti-dark">Berita tidak ditemukan</h1>
+          <h1 className="text-5xl font-black text-foreground">Berita tidak ditemukan</h1>
           <Link to="/berita" className="mt-6 inline-flex text-hmti-gold">
             Kembali ke berita
           </Link>
@@ -68,7 +68,7 @@ function NewsDetail() {
         </section>
 
         <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[1fr_320px] lg:px-8">
-          <article className="prose max-w-none prose-headings:text-hmti-dark prose-a:text-hmti-gold">
+          <article className="prose max-w-none text-foreground prose-headings:text-foreground prose-a:text-hmti-gold">
             <AnimatedSection>
               <div dangerouslySetInnerHTML={{ __html: item.content }} />
             </AnimatedSection>
@@ -76,13 +76,13 @@ function NewsDetail() {
               <button
                 type="button"
                 onClick={() => void navigator.clipboard?.writeText(shareUrl)}
-                className="inline-flex items-center gap-2 rounded-md border border-line bg-card px-3 py-2 text-sm text-ink/70 hover:text-hmti-gold"
+                className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-sm text-muted-foreground hover:text-hmti-gold"
               >
                 <Copy className="h-4 w-4" /> Copy Link
               </button>
               <a
                 href={`https://wa.me/?text=${encodeURIComponent(`${item.title} ${shareUrl}`)}`}
-                className="inline-flex items-center gap-2 rounded-md border border-line bg-card px-3 py-2 text-sm text-ink/70 hover:text-hmti-gold"
+                className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-sm text-muted-foreground hover:text-hmti-gold"
               >
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
@@ -97,7 +97,7 @@ function NewsDetail() {
                     key={post.id}
                     to="/berita/$slug"
                     params={{ slug: post.slug }}
-                    className="block text-sm text-ink/70 hover:text-hmti-gold"
+                    className="block text-sm text-muted-foreground hover:text-hmti-gold"
                   >
                     {post.title}
                   </Link>
@@ -112,7 +112,7 @@ function NewsDetail() {
                     key={event.id}
                     to="/event/$id"
                     params={{ id: event.id }}
-                    className="block text-sm text-ink/70 hover:text-hmti-gold"
+                    className="block text-sm text-muted-foreground hover:text-hmti-gold"
                   >
                     {event.title}
                   </Link>

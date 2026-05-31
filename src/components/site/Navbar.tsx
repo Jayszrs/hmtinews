@@ -94,12 +94,12 @@ export function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         scrolled
           ? "border-border bg-background/85 shadow-[0_10px_30px_rgba(0,0,0,0.25)] backdrop-blur-xl"
-          : "border-transparent bg-background/60 backdrop-blur-xl"
+          : "border-border/60 bg-background/90 backdrop-blur-xl"
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         <Link to="/" className="group flex items-center gap-3">
-          <HmtiLogo className="h-12 w-12 transition group-hover:rotate-3" />
+          <HmtiLogo className="h-14 w-14 overflow-hidden rounded-md border border-border bg-white p-1 transition group-hover:rotate-3" />
           <div className="leading-none">
             <div className="text-2xl font-black tracking-tight text-foreground">
               HM<span className="text-primary">TI</span>
@@ -163,11 +163,13 @@ export function Navbar() {
             </button>
             {themeMenu && (
               <div className="absolute right-0 top-12 z-50 w-40 overflow-hidden rounded-md border border-border bg-background/95 p-1 shadow-lg backdrop-blur-xl">
-                {([
-                  { mode: "light", label: "Light", Icon: Sun },
-                  { mode: "dark", label: "Dark", Icon: Moon },
-                  { mode: "system", label: "System", Icon: Laptop },
-                ] as const).map(({ mode, label, Icon }) => (
+                {(
+                  [
+                    { mode: "light", label: "Light", Icon: Sun },
+                    { mode: "dark", label: "Dark", Icon: Moon },
+                    { mode: "system", label: "System", Icon: Laptop },
+                  ] as const
+                ).map(({ mode, label, Icon }) => (
                   <button
                     key={mode}
                     type="button"

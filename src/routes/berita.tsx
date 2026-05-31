@@ -38,10 +38,10 @@ function BeritaPage() {
             <div className="font-mono text-xs uppercase tracking-[0.28em] text-hmti-gold">
               Arsip Berita
             </div>
-            <h1 className="mt-4 text-5xl font-black leading-tight text-hmti-dark md:text-7xl">
+            <h1 className="mt-4 text-5xl font-black leading-tight text-foreground md:text-7xl">
               Berita HMTI
             </h1>
-            <p className="mt-5 max-w-2xl text-ink/65">
+            <p className="mt-5 max-w-2xl text-muted-foreground">
               Informasi akademik, organisasi, event, dan pengumuman resmi HMTI.
             </p>
           </AnimatedSection>
@@ -57,7 +57,7 @@ function BeritaPage() {
                 className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest ${
                   category === item
                     ? "border-hmti-gold bg-hmti-gold text-white"
-                    : "border-line bg-card text-ink/60 hover:border-hmti-gold hover:text-hmti-gold"
+                    : "border-border bg-card text-muted-foreground hover:border-hmti-gold hover:text-hmti-gold"
                 }`}
               >
                 {item}

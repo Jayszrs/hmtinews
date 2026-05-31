@@ -39,10 +39,10 @@ function AnggotaPage() {
             <div className="font-mono text-xs uppercase tracking-[0.28em] text-hmti-gold">
               Galeri Anggota
             </div>
-            <h1 className="mt-4 text-5xl font-black leading-tight text-hmti-dark md:text-7xl">
+            <h1 className="mt-4 text-5xl font-black leading-tight text-foreground md:text-7xl">
               Anggota HMTI
             </h1>
-            <p className="mt-5 max-w-2xl text-ink/65">
+            <p className="mt-5 max-w-2xl text-muted-foreground">
               Kartu anggota digital dengan visual seperti ID card fisik.
             </p>
           </AnimatedSection>
@@ -58,7 +58,7 @@ function AnggotaPage() {
                   className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest ${
                     year === item
                       ? "border-hmti-gold bg-hmti-gold text-white"
-                      : "border-line bg-card text-ink/60 hover:border-hmti-gold hover:text-hmti-gold"
+                      : "border-border bg-card text-muted-foreground hover:border-hmti-gold hover:text-hmti-gold"
                   }`}
                 >
                   {item === "Semua" ? "Semua" : `Angkatan ${item}`}
@@ -69,7 +69,7 @@ function AnggotaPage() {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Cari anggota..."
-              className="h-11 rounded-md border border-line bg-card px-4 text-sm text-ink outline-none placeholder:text-ink/35 focus:border-hmti-gold md:w-72"
+              className="h-11 rounded-md border border-border bg-card px-4 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:border-hmti-gold md:w-72"
             />
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

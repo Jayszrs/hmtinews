@@ -3,29 +3,37 @@ import { ArrowRight, CalendarDays } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { HmtiLogo } from "@/components/HmtiLogo";
 
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=2200&q=85";
+
 export function ParallaxHero() {
   return (
-    <section id="hero" className="relative overflow-hidden bg-background pt-24 text-foreground">
-      <div
-        id="hero-bg"
-        data-parallax-speed="0.16"
-        className="hmti-hero-pattern absolute inset-0 h-[115%]"
+    <section id="hero" className="relative overflow-hidden bg-hmti-dark pt-20 text-white">
+      <div id="hero-bg" data-parallax-speed="0.16" className="absolute inset-0 h-[115%]" />
+      <img
+        src={HERO_IMAGE}
+        alt="Mahasiswa HMTI berkegiatan di kampus"
+        className="absolute inset-0 h-[115%] w-full object-cover"
       />
-      <div className="relative mx-auto grid min-h-[78vh] max-w-7xl gap-8 px-5 py-10 lg:grid-cols-[1.35fr_.65fr] lg:px-8 lg:py-14">
-        <AnimatedSection className="flex flex-col justify-end border-b-4 border-hmti-gold pb-8 lg:border-b-0 lg:border-r-4 lg:pr-10">
-          <div className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-hmti-gold">
-            <HmtiLogo className="h-9 w-9" />
-            HMTI Newsroom
+      <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/45 to-black/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/25" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.10)_1px,transparent_1px)] bg-[size:64px_64px] opacity-25" />
+
+      <div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-7xl items-center px-5 py-12 lg:px-8">
+        <AnimatedSection className="max-w-4xl">
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/25 bg-white/12 px-3 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur-md">
+            <HmtiLogo className="h-8 w-8 overflow-hidden rounded bg-white" />
+            HMTI Universitas Bani Saleh
           </div>
-          <div className="mb-4 inline-flex w-max items-center gap-2 rounded-full bg-hmti-gold px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
-            Breaking Update
+          <div className="mb-4 inline-flex w-max items-center gap-2 rounded bg-hmti-gold px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
+            Portal Resmi Organisasi
           </div>
-          <h1 className="max-w-4xl text-[clamp(2.9rem,7vw,6.8rem)] font-black leading-[0.95] text-hmti-dark">
-            Portal Berita HMTI Universitas Bani Saleh
+          <h1 className="max-w-4xl text-[clamp(2.8rem,8vw,6.9rem)] font-black leading-[0.94] text-white">
+            HMTI Digital Hub
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-ink/68 md:text-lg">
-            Update organisasi, agenda kampus, karya mahasiswa, dan informasi akademik dikemas dalam
-            tampilan editorial modern dengan palet hitam, marun, merah, krem, dan abu hangat.
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white/82 md:text-lg">
+            Wadah informasi, agenda, berita, dan dokumentasi HMTI yang dibuat lebih rapi,
+            profesional, dan mudah dibaca dari perangkat apa pun.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -37,35 +45,24 @@ export function ParallaxHero() {
             </Link>
             <Link
               to="/event"
-              className="inline-flex items-center gap-2 rounded-md border border-hmti-dark/20 bg-white/50 px-5 py-3 text-sm font-bold uppercase tracking-wider text-hmti-dark transition hover:border-hmti-gold hover:text-hmti-gold"
+              className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 px-5 py-3 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition hover:border-hmti-gold hover:text-hmti-gold"
             >
               Agenda Event
             </Link>
           </div>
         </AnimatedSection>
+      </div>
 
-        <AnimatedSection delay={0.12} className="flex flex-col justify-end">
-          <div className="rounded-xl border border-line bg-card p-5 shadow-card">
-            <div className="aspect-[4/3] overflow-hidden rounded-lg bg-hmti-dark">
-              <img
-                src="/hmti-logo.jpg"
-                alt="Logo HMTI"
-                className="h-full w-full object-contain p-12 opacity-95"
-              />
-            </div>
-            <div className="mt-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-hmti-gold">
-              <CalendarDays className="h-4 w-4" />
-              Edisi Organisasi
-            </div>
-            <h2 className="mt-3 text-2xl font-black leading-tight text-hmti-dark">
-              Redaksi digital untuk kegiatan, anggota, dan arsip HMTI.
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-ink/62">
-              Tampilan dibuat lebih familiar seperti portal news: headline jelas, kartu rapih, dan
-              hierarki informasi lebih mudah discan.
-            </p>
+      <div className="absolute inset-x-0 bottom-0 border-t border-white/15 bg-hmti-dark/88 px-5 py-3 text-white backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center gap-6 overflow-hidden text-xs font-bold uppercase tracking-widest">
+          <CalendarDays className="h-4 w-4 shrink-0 text-hmti-gold" />
+          <div className="marquee">
+            <span>Berita resmi HMTI Universitas Bani Saleh</span>
+            <span>Agenda kegiatan dan workshop mahasiswa</span>
+            <span>Profil anggota, struktural, dan dokumentasi organisasi</span>
+            <span>Berita resmi HMTI Universitas Bani Saleh</span>
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

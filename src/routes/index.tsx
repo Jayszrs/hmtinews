@@ -77,8 +77,10 @@ function SectionHead({
   return (
     <AnimatedSection id={id as never} className="mx-auto mb-10 max-w-3xl text-center">
       <div className="font-mono text-xs uppercase tracking-[0.28em] text-hmti-gold">{eyebrow}</div>
-      <h2 className="mt-3 text-4xl font-black leading-tight text-hmti-dark md:text-5xl">{title}</h2>
-      <p className="mt-4 text-ink/62">{sub}</p>
+      <h2 className="mt-3 text-4xl font-black leading-tight text-foreground md:text-5xl">
+        {title}
+      </h2>
+      <p className="mt-4 text-muted-foreground">{sub}</p>
     </AnimatedSection>
   );
 }
@@ -208,7 +210,7 @@ function MemberSection({ members }: { members: HmtiMember[] }) {
               className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest transition ${
                 filter === year
                   ? "border-hmti-gold bg-hmti-gold text-white"
-                  : "border-line bg-card text-ink/60 hover:border-hmti-gold hover:text-hmti-gold"
+                  : "border-border bg-card text-muted-foreground hover:border-hmti-gold hover:text-hmti-gold"
               }`}
             >
               {year === "Semua" ? "Semua" : `Angkatan ${year}`}
@@ -273,16 +275,16 @@ function OrgNode({ member, level, delay }: { member?: HmtiMember; level: string;
     <AnimatedSection
       as="div"
       delay={delay}
-      className="mx-auto max-w-sm rounded-lg border border-line bg-background p-5 text-center shadow-card"
+      className="mx-auto max-w-sm rounded-lg border border-border bg-background p-5 text-center shadow-card"
     >
-      <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-hmti-gold bg-hmti-green font-heading text-lg">
+      <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-hmti-gold bg-hmti-green font-heading text-lg text-white">
         {member.name
           .split(" ")
           .map((part) => part[0])
           .join("")
           .slice(0, 2)}
       </div>
-      <div className="mt-4 text-lg font-bold text-hmti-dark">{member.name}</div>
+      <div className="mt-4 text-lg font-bold text-foreground">{member.name}</div>
       <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-hmti-gold">
         {level}
       </div>
