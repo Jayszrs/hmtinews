@@ -68,42 +68,42 @@
   --color-bone: var(--bone);
   --color-bone-muted: var(--bone-muted);
   --color-bone-dim: var(--bone-dim);
-  --font-display: "Montserrat", system-ui, sans-serif;
-  --font-heading: "Montserrat", system-ui, sans-serif;
-  --font-body: "Montserrat", system-ui, sans-serif;
-  --font-mono: "Montserrat", ui-sans-serif, sans-serif;
+  --font-display: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-heading: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 :root {
   /* Dark-first: :root IS the dark theme */
   --radius: 0.75rem;
 
-  --ink: #1a1515;
-  --ink-soft: #241d1d;
-  --ink-muted: #302626;
-  --surface: #fffaf0;
-  --surface-2: #efe9db;
-  --line: #d8d0c2;
+  --ink: #0a0a0a;
+  --ink-soft: #141414;
+  --ink-muted: #1f1f1f;
+  --surface: #0f0f0f;
+  --surface-2: #181818;
+  --line: rgba(255, 255, 255, 0.12);
 
-  --hmti-dark: #1a1515;
-  --hmti-green: #2a2020;
-  --hmti-mid: #850000;
-  --hmti-light: #d90000;
-  --hmti-gold: #a80000;
-  --hmti-gold-light: #e00000;
+  --hmti-dark: #0a0a0a;
+  --hmti-green: #141414;
+  --hmti-mid: #b00018;
+  --hmti-light: #ff1f3d;
+  --hmti-gold: #e60023;
+  --hmti-gold-light: #ff2a44;
 
-  --red: #a80000;
-  --red-vivid: #d90000;
-  --red-muted: #780000;
+  --red: #e60023;
+  --red-vivid: #ff1f3d;
+  --red-muted: #8a0014;
 
-  --bone: #fbf4e6;
-  --bone-muted: #c4bfb1;
-  --bone-dim: #77766f;
+  --bone: #f5f5f5;
+  --bone-muted: rgba(245, 245, 245, 0.7);
+  --bone-dim: rgba(245, 245, 245, 0.5);
 
-  --background: #f4efe6;
-  --foreground: var(--ink);
-  --card: #fffaf0;
-  --card-foreground: var(--ink);
+  --background: #0a0a0a;
+  --foreground: var(--bone);
+  --card: rgba(255, 255, 255, 0.04);
+  --card-foreground: var(--bone);
   --popover: var(--ink-soft);
   --popover-foreground: var(--bone);
   --primary: var(--red);
@@ -133,14 +133,15 @@
   --sidebar-border: var(--line);
   --sidebar-ring: var(--red);
 
-  --shadow-card: 0 16px 40px rgba(26, 21, 21, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
-  --shadow-red: 0 18px 48px rgba(168, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.18);
-  --shadow-hover: 0 18px 48px rgba(26, 21, 21, 0.14), 0 2px 8px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.4);
+  --shadow-red: 0 18px 48px rgba(230, 0, 35, 0.35), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 24px 60px rgba(230, 0, 35, 0.25), 0 4px 12px rgba(0, 0, 0, 0.5);
 
-  --gradient-red: linear-gradient(135deg, #850000 0%, #a80000 48%, #e00000 100%);
+  --gradient-red: linear-gradient(135deg, #8a0014 0%, #e60023 50%, #ff2a44 100%);
   --gradient-hero:
-    radial-gradient(ellipse at top right, rgba(168, 0, 0, 0.16) 0%, transparent 60%),
-    radial-gradient(ellipse at bottom left, rgba(26, 21, 21, 0.1) 0%, transparent 55%), #f4efe6;
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(230, 0, 35, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 15% 90%, rgba(255, 31, 61, 0.35) 0%, transparent 55%),
+    radial-gradient(circle at 50% 50%, #1a0408 0%, #0a0a0a 70%);
 }
 
 @layer base {

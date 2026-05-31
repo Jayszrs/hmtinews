@@ -44,7 +44,7 @@ export function Navbar() {
       { threshold: 0.45 },
     );
     NAV.map((item) => document.getElementById(item.section))
-      .filter(Boolean)
+      .filter((node): node is HTMLElement => node !== null)
       .forEach((node) => observer.observe(node));
     return () => observer.disconnect();
   }, []);

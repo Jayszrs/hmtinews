@@ -44,7 +44,7 @@ export function RichTextEditor({
           <button
             key={tool.label}
             type="button"
-            onClick={() => exec(tool.command, tool.value)}
+            onClick={() => exec(tool.command, (tool as { value?: string }).value)}
             className="grid h-9 w-9 place-items-center rounded-md text-white/70 transition hover:bg-hmti-gold hover:text-white"
             aria-label={tool.label}
           >
