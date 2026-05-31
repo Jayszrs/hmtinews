@@ -4,7 +4,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { HmtiLogo } from "@/components/HmtiLogo";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=2200&q=85";
+  "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=2200&q=85";
 
 export function ParallaxHero() {
   return (
@@ -28,12 +28,13 @@ export function ParallaxHero() {
           <div className="mb-4 inline-flex w-max items-center gap-2 rounded bg-hmti-gold px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
             Portal Resmi Organisasi
           </div>
-          <h1 className="max-w-4xl text-[clamp(2.8rem,8vw,6.9rem)] font-black leading-[0.94] text-white">
-            HMTI Digital Hub
+          <h1 className="binary-title relative max-w-4xl overflow-hidden text-[clamp(2.8rem,8vw,6.9rem)] font-black leading-[0.94] text-white">
+            Selamat Datang
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/82 md:text-lg">
-            Wadah informasi, agenda, berita, dan dokumentasi HMTI yang dibuat lebih rapi,
-            profesional, dan mudah dibaca dari perangkat apa pun.
+            Masuk ke ruang digital HMTI Universitas Bani Saleh: tempat kabar organisasi, agenda
+            kegiatan, profil anggota, dan dokumentasi perjalanan mahasiswa Informatika dirangkum
+            dengan tampilan yang rapi, cepat, dan mudah dijelajahi.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

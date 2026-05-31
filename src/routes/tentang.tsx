@@ -1,7 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Heart, Lightbulb, Shield, Sparkles, Target, Users } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
-import { PageHero } from "@/components/site/PageHero";
-import { Target, Heart, Users, Lightbulb, Shield, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/tentang")({
   component: TentangPage,
@@ -20,31 +19,40 @@ export const Route = createFileRoute("/tentang")({
   }),
 });
 
+const ABOUT_IMAGE =
+  "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2200&q=85";
+
+const SNAPSHOT = [
+  ["500+", "Anggota aktif dan alumni"],
+  ["15+", "Mitra komunitas dan industri"],
+  ["2015", "Tahun perjalanan dimulai"],
+];
+
 const MILESTONES = [
   {
     year: "2015",
     title: "HMTI Didirikan",
-    desc: "12 mahasiswa pendiri memulai organisasi dari sebuah lab komputer.",
+    desc: "Mahasiswa pendiri memulai organisasi dari lab komputer dan forum belajar kecil.",
   },
   {
     year: "2018",
     title: "Hackathon Pertama",
-    desc: "Menyelenggarakan kompetisi coding pertama dengan 80 peserta.",
+    desc: "Kompetisi coding perdana membuka ruang karya dan kolaborasi lintas angkatan.",
   },
   {
     year: "2020",
     title: "Transformasi Digital",
-    desc: "Beradaptasi penuh ke event online, capai 5x lipat peserta nasional.",
+    desc: "Program kerja beradaptasi ke format online dan menjangkau peserta lebih luas.",
   },
   {
     year: "2023",
     title: "Mitra Industri 15+",
-    desc: "Resmi bermitra dengan Gojek, Tokopedia, Telkom, dan lainnya.",
+    desc: "HMTI memperkuat relasi dengan komunitas teknologi, alumni, dan perusahaan digital.",
   },
   {
     year: "2026",
     title: "Ekosistem IT Kampus",
-    desc: "Menjadi pusat aktivitas IT mahasiswa dengan 500+ anggota aktif.",
+    desc: "HMTI berkembang menjadi pusat aktivitas teknologi, mentoring, dan dokumentasi kampus.",
   },
 ];
 
@@ -53,75 +61,129 @@ const VALUES = [
   { icon: Users, title: "Kolaborasi", desc: "Membangun budaya kerja tim lintas disiplin." },
   { icon: Shield, title: "Integritas", desc: "Bertindak jujur dan bertanggung jawab." },
   { icon: Heart, title: "Kepedulian", desc: "Menggunakan teknologi untuk dampak sosial." },
-  { icon: Target, title: "Eksekusi", desc: "Tidak hanya berdiskusi — kami menghasilkan." },
+  {
+    icon: Target,
+    title: "Eksekusi",
+    desc: "Tidak berhenti di wacana, HMTI bergerak menghasilkan.",
+  },
   {
     icon: Sparkles,
     title: "Pertumbuhan",
-    desc: "Belajar tanpa henti, individu maupun organisasi.",
+    desc: "Belajar tanpa henti, baik sebagai individu maupun organisasi.",
   },
 ];
 
 function TentangPage() {
   return (
     <PageShell>
-      <PageHero
-        eyebrow="Tentang Kami"
-        title="Lebih dari Sekadar Himpunan"
-        subtitle="HMTI adalah rumah bagi mahasiswa Informatika untuk tumbuh, berkolaborasi, dan menciptakan dampak nyata melalui teknologi."
-        crumbs={[{ label: "Beranda", to: "/" }, { label: "Tentang" }]}
-      />
+      <section className="relative overflow-hidden bg-hmti-dark pt-20 text-white">
+        <img
+          src={ABOUT_IMAGE}
+          alt="Mahasiswa HMTI berkumpul dan belajar bersama"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/86 via-black/58 to-black/22" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-transparent to-black/20" />
+        <div className="relative mx-auto grid min-h-[78svh] max-w-7xl items-end gap-10 px-5 py-16 lg:grid-cols-[1fr_360px] lg:px-8">
+          <div className="max-w-4xl pb-8">
+            <div className="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-white/60">
+              Beranda <span className="mx-2 text-hmti-gold">/</span> Tentang
+            </div>
+            <div className="mb-5 inline-flex items-center rounded bg-hmti-gold px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
+              Tentang Kami
+            </div>
+            <h1 className="text-[clamp(3rem,7vw,6.6rem)] font-black leading-[0.95]">
+              Lebih dari Sekadar Himpunan
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
+              HMTI adalah rumah bertumbuh bagi mahasiswa Informatika Universitas Bani Saleh: tempat
+              belajar teknologi, membangun relasi, mengelola kegiatan, dan menciptakan karya yang
+              berdampak untuk kampus maupun masyarakat.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/anggota"
+                className="inline-flex items-center gap-2 rounded-md bg-hmti-gold px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition hover:-translate-y-1 hover:shadow-red"
+              >
+                Lihat Anggota <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/kontak"
+                className="inline-flex items-center gap-2 rounded-md border border-white/35 bg-white/10 px-5 py-3 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition hover:border-hmti-gold hover:text-hmti-gold"
+              >
+                Hubungi Kami
+              </Link>
+            </div>
+          </div>
 
-      <section className="py-20 bg-ink">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 grid md:grid-cols-2 gap-8">
-          <div className="rounded-xl border border-line bg-surface p-8">
-            <Target className="w-8 h-8 text-red mb-4" />
-            <h2 className="font-display text-4xl text-bone">Visi</h2>
-            <p className="mt-4 text-bone-muted leading-relaxed">
+          <div className="rounded-lg border border-white/18 bg-black/38 p-5 backdrop-blur-md">
+            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-hmti-gold">
+              Snapshot Organisasi
+            </div>
+            <div className="mt-5 space-y-4">
+              {SNAPSHOT.map(([value, label]) => (
+                <div key={label} className="border-t border-white/14 pt-4">
+                  <div className="text-4xl font-black leading-none text-white">{value}</div>
+                  <div className="mt-2 text-sm text-white/68">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-background py-20 text-foreground">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 md:grid-cols-2 lg:px-8">
+          <div className="rounded-lg border border-border bg-card p-8 shadow-card">
+            <Target className="mb-5 h-8 w-8 text-hmti-gold" />
+            <h2 className="text-4xl font-black">Visi</h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
               Menjadi organisasi mahasiswa Teknik Informatika terdepan yang melahirkan pemimpin
               teknologi berkarakter, inovatif, dan berdampak bagi Indonesia.
             </p>
           </div>
-          <div className="rounded-xl border border-line bg-surface p-8">
-            <Heart className="w-8 h-8 text-red mb-4" />
-            <h2 className="font-display text-4xl text-bone">Misi</h2>
-            <ul className="mt-4 space-y-2 text-bone-muted">
-              <li className="flex gap-3">
-                <span className="text-red">▸</span> Mengembangkan kompetensi teknis dan soft skill
-                anggota.
-              </li>
-              <li className="flex gap-3">
-                <span className="text-red">▸</span> Membangun jembatan antara akademis dan industri.
-              </li>
-              <li className="flex gap-3">
-                <span className="text-red">▸</span> Mendorong riset dan inovasi mahasiswa
-                Informatika.
-              </li>
-              <li className="flex gap-3">
-                <span className="text-red">▸</span> Menciptakan komunitas IT yang inklusif dan
-                suportif.
-              </li>
+          <div className="rounded-lg border border-border bg-card p-8 shadow-card">
+            <Heart className="mb-5 h-8 w-8 text-hmti-gold" />
+            <h2 className="text-4xl font-black">Misi</h2>
+            <ul className="mt-4 space-y-3 text-muted-foreground">
+              {[
+                "Mengembangkan kompetensi teknis dan soft skill anggota.",
+                "Membangun jembatan antara akademis dan industri.",
+                "Mendorong riset dan inovasi mahasiswa Informatika.",
+                "Menciptakan komunitas IT yang inklusif dan suportif.",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="text-hmti-gold">-</span> {item}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-ink-soft border-y border-line">
+      <section className="border-y border-border bg-card py-20 text-foreground">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="font-mono text-xs uppercase tracking-widest text-red mb-3">Sejarah</div>
-          <h2 className="font-display text-5xl text-bone mb-12">Perjalanan HMTI</h2>
+          <div className="mb-3 font-mono text-xs uppercase tracking-widest text-hmti-gold">
+            Sejarah
+          </div>
+          <h2 className="mb-12 text-5xl font-black">Perjalanan HMTI</h2>
           <div className="relative">
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-red/30" />
+            <div className="absolute bottom-0 left-4 top-0 w-px bg-hmti-gold/30 md:left-1/2" />
             <div className="space-y-12">
-              {MILESTONES.map((m, i) => (
+              {MILESTONES.map((milestone, index) => (
                 <div
-                  key={m.year}
-                  className={`relative grid md:grid-cols-2 gap-4 md:gap-12 ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}
+                  key={milestone.year}
+                  className={`relative grid gap-4 md:grid-cols-2 md:gap-12 ${
+                    index % 2 === 1 ? "md:[direction:rtl]" : ""
+                  }`}
                 >
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-red shadow-red" />
+                  <div className="absolute left-4 h-3 w-3 -translate-x-1/2 rounded-full bg-hmti-gold shadow-red md:left-1/2" />
                   <div className="pl-12 md:pl-0 md:[direction:ltr]">
-                    <div className="font-display text-5xl text-red leading-none">{m.year}</div>
-                    <h3 className="mt-2 font-heading text-2xl font-bold text-bone">{m.title}</h3>
-                    <p className="mt-2 text-bone-muted">{m.desc}</p>
+                    <div className="text-5xl font-black leading-none text-hmti-gold">
+                      {milestone.year}
+                    </div>
+                    <h3 className="mt-2 text-2xl font-bold">{milestone.title}</h3>
+                    <p className="mt-2 text-muted-foreground">{milestone.desc}</p>
                   </div>
                   <div />
                 </div>
@@ -131,21 +193,21 @@ function TentangPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-ink">
+      <section className="bg-background py-20 text-foreground">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="font-mono text-xs uppercase tracking-widest text-red mb-3">
+          <div className="mb-3 font-mono text-xs uppercase tracking-widest text-hmti-gold">
             Nilai-Nilai
           </div>
-          <h2 className="font-display text-5xl text-bone mb-12">Yang Kami Pegang</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {VALUES.map((v) => (
+          <h2 className="mb-12 text-5xl font-black">Yang Kami Pegang</h2>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {VALUES.map((value) => (
               <div
-                key={v.title}
-                className="rounded-xl border border-line bg-surface p-6 card-hover"
+                key={value.title}
+                className="card-hover rounded-lg border border-border bg-card p-6"
               >
-                <v.icon className="w-7 h-7 text-red mb-4" />
-                <h3 className="font-heading text-xl font-bold text-bone">{v.title}</h3>
-                <p className="mt-2 text-sm text-bone-muted">{v.desc}</p>
+                <value.icon className="mb-4 h-7 w-7 text-hmti-gold" />
+                <h3 className="text-xl font-bold">{value.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{value.desc}</p>
               </div>
             ))}
           </div>

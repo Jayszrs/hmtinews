@@ -28,40 +28,34 @@ export function PageLoader() {
   return (
     <div
       aria-hidden={!visible}
-      className={`pointer-events-none fixed inset-0 z-[100] grid place-items-center bg-[#0a0a0a] transition-opacity duration-500 ${
+      className={`pointer-events-none fixed inset-0 z-[100] grid place-items-center bg-[#070707] transition-opacity duration-500 ${
         visible ? "opacity-100" : "opacity-0"
       }`}
       style={{ visibility: visible ? "visible" : "hidden" }}
     >
-      <div
-        className="absolute inset-0 opacity-70"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(230,0,35,0.35) 0%, transparent 55%)",
-        }}
-      />
-      <div className="relative flex flex-col items-center gap-6">
-        <div className="relative h-28 w-28">
-          <div
-            className="absolute -inset-3 rounded-full animate-[spin_1.6s_linear_infinite]"
-            style={{
-              background:
-                "conic-gradient(from 0deg, transparent 0%, #ff2a44 70%, transparent 100%)",
-              mask: "radial-gradient(circle, transparent 58%, #000 60%)",
-              WebkitMask: "radial-gradient(circle, transparent 58%, #000 60%)",
-            }}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(230,0,35,0.26),transparent_34%),radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.06),transparent_20%)]" />
+      <div className="relative flex flex-col items-center gap-7">
+        <div className="relative grid h-32 w-32 place-items-center">
+          <div className="absolute inset-0 rounded-[18px] bg-white/5 blur-sm" />
+          <HmtiLogo
+            className="relative h-28 w-28 overflow-hidden rounded-[14px] opacity-42 mix-blend-screen"
+            imageClassName="opacity-80 grayscale"
           />
-          <HmtiLogo className="relative h-full w-full animate-[pulse_1.8s_ease-in-out_infinite]" />
+          <div className="pixel-sweep absolute inset-2 rounded-[14px]" />
         </div>
-        <div className="font-display text-[11px] uppercase tracking-[0.5em] text-white/70">
-          HMTI
+        <div className="flex items-center gap-1.5" aria-hidden="true">
+          {Array.from({ length: 14 }).map((_, index) => (
+            <span
+              key={index}
+              className="pixel-loader-block h-3 w-3 bg-white/18"
+              style={{ animationDelay: `${index * 0.08}s` }}
+            />
+          ))}
+        </div>
+        <div className="font-mono text-[10px] uppercase tracking-[0.55em] text-white/60">
+          Loading
         </div>
       </div>
-      <style>{`
-        @media (prefers-reduced-motion: reduce) {
-          [aria-hidden] [style*="animation"] { animation: none !important; }
-        }
-      `}</style>
     </div>
   );
 }
