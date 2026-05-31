@@ -62,7 +62,7 @@ export type AuthSession = {
 };
 
 export type HmtiSettings = {
-  theme: "dark" | "light";
+  theme: "dark" | "light" | "system";
 };
 
 const img = (seed: string, w = 1200, h = 675) =>
@@ -125,7 +125,7 @@ export function remove(key: string, id: string): void {
 }
 
 export function getSettings(): HmtiSettings {
-  return read<HmtiSettings>(KEYS.SETTINGS, { theme: "dark" });
+  return read<HmtiSettings>(KEYS.SETTINGS, { theme: "system" });
 }
 
 export function setSettings(settings: HmtiSettings) {

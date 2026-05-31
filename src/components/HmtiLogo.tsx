@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import logo from "@/assets/hmti-logo.png";
 
 export function HmtiLogo({
   className,
@@ -8,8 +9,12 @@ export function HmtiLogo({
   imageClassName?: string;
 }) {
   return (
-    <span className={cn("hmti-logo-grid", className)}>
-      <img src="/hmti-logo.jpg" alt="Logo HMTI" className={cn("hmti-logo-image", imageClassName)} />
+    <span className={cn("inline-grid place-items-center", className)}>
+      <img
+        src={logo}
+        alt="Logo HMTI"
+        className={cn("h-full w-full object-contain", imageClassName)}
+      />
     </span>
   );
 }
